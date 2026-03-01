@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 import pandas as pd
 import plotly.express as px
 import google.generativeai as genai
@@ -509,7 +510,7 @@ def render_hero_metrics(df):
 if "df" not in st.session_state:
     st.session_state.df = None
 if "api_key" not in st.session_state:
-    st.session_state.api_key = st.secrets.get("GEMINI_API_KEY", "")
+    st.session_state.api_key = os.getenv("GEMINI_API_KEY", "")
 if "current_page" not in st.session_state:
     st.session_state.current_page = "Home"
 
